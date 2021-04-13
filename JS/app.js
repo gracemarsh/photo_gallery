@@ -1,26 +1,29 @@
 ​baguetteBox.run('.gallery');
 
-// ​const search = new Filter('search', 'data-caption');
+/** This function is used to filter images from the gallery by matching the search input and any words from the image captions.
+ * var input = what someone types into the search bar
+ * var search = needs to match words from the images caption attribute
+ * Create loop that goes through all list items, and hides those who don't match the search query
+ */
 
-function searchFunction()
-  // Declare variables
+const input = document.getElementById('search');
+const searchTerm = input.value.toLowerCase();
+// console.log(searchTerm);
 
-let input = document.getElementById('search');
+const caption = document.querySelectorAll('[data-caption]');
+//Why doesn't data caption just give me the string? I also don't know why I need square brackets
+const imageCaption = caption.textContent.toLowerCase();
+// console.log(imageCaption);
 
-console.log(input)
 
-let search = input.toLowerCase();
-
-getAttribute()
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < photo.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toLowerCase().indexOf(filter) > -1) {
-      image.display = "yes";
+function searchFunction(){
+  for (i = 1; i >= 12; i++) {
+    if(imageCaption.includes(searchTerm)){
+      image.display = "block";
     } else {
       image.display = "none";
     }
   }
 }
+
+input.addEventListener('keyup', searchFunction);
