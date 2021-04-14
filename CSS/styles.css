@@ -5,7 +5,7 @@ main {
   margin: auto;
 }
 
-#search {
+#searchBar {
   font-family: "Lato", sans-serif;
   font-size: 17px;
   border: 2px solid rgb(215, 215, 215);
@@ -27,8 +27,4 @@ main {
 
 img {
   justify-content: center;
-}
-
-[data-caption] {
-  outline: 1px solid red;
 }

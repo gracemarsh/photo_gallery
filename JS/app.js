@@ -1,32 +1,29 @@
-​baguetteBox.run('.gallery');
+// ​baguetteBox.run('.gallery');
 
-/** This function is used to filter images from the gallery by matching the search input and any words from the image captions.
+/**
+ * This function is used to filter images from the gallery by matching the search input and any words from the image captions.
  * var input = what someone types into the search bar
  * var search = needs to match words from the images caption attribute
  * Create loop that goes through all list items, and hides those who don't match the search query
  */
 
-const input = document.getElementById('search');
-const searchTerm = input.value.toLowerCase();
-// console.log(searchTerm);
+let input = document.getElementById("searchBar");
 
-// get all captions (in an array) [a, a, a, a, a, a, a]
+function searchFunction() {
+  for (i = 0; i <= 11; i++) {
+    let img = document.querySelectorAll("a")[i];
 
-const caption = document.querySelectorAll('[data-caption]');
-//Why doesn't data caption just give me the string?
-// I also don't know why I need square brackets. That's just how it's done baby see css
-const imageCaption = caption.textContent.toLowerCase();
-// console.log(imageCaption);
+    let searchTerm = input.value.toLowerCase();
 
+    let dataCaption = img.getAttribute("data-caption");
+    const imageCaption = dataCaption.toLowerCase();
 
-function searchFunction(){
-  for (i = 1; i >= 12; i++) {
-    if(imageCaption.includes(searchTerm)){
-      image.display = "block";
+    if (imageCaption.includes(searchTerm)) {
+      img.style.display = "block";
     } else {
-      image.display = "none";
+      img.style.display = "none";
     }
   }
 }
 
-input.addEventListener('keyup', searchFunction);
+input.addEventListener("keyup", searchFunction);
